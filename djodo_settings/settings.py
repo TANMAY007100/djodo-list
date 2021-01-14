@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY', 'mysecretkey')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [each_host for each_host in config('ALLOWED_HOSTS', cast=str).split(',')]
 
 ADMIN_URL = config('ADMIN_URL', 'admin')
 

@@ -1,1 +1,1 @@
-web: gunicorn djodo_settings.wsgi
+web: gunicorn djodo_settings.wsgi --log-file -
