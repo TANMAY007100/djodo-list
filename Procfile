@@ -1,0 +1,1 @@
+web: gunicorn djodo_settings.wsgi
