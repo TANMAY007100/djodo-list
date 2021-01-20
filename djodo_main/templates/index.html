@@ -2,17 +2,17 @@
 {%block page_title%}Home{%endblock%}
 {%block page_body%}
 <div class="container">
+    
     <div class="todo-container">
-        <form class="todo-form">
-            <input class="todo-text" type="text" />
+        <h1 class="page-title">Djodo List</h1>
+        <form class="todo-form" method="POST">
+            {%csrf_token%}
+            <input name="{{todo_form.todo.name}}" class="todo-text" type="text" />
         </form>
         <ul class="todo-list">
-            <li>Hit the gym </li>
-            <li>Pay bills</li>
-            <li>Meet George</li>
-            <li>Buy eggs</li>
-            <li>Read a book</li>
-            <li>Organize office</li>
+            {%for each_task in items%}
+            <li class="added">{{each_task}}</li>
+            {%endfor%}
         </ul>
     </div>
 </div>
