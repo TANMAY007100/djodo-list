@@ -33,6 +33,7 @@ ADMIN_URL = config('ADMIN_URL', 'admin')
 # Application definition
 
 INSTALLED_APPS = [
+    'fontawesome-free',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

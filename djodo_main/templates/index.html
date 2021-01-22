@@ -7,14 +7,35 @@
         <h1 class="page-title">Djodo List</h1>
         <form class="todo-form" method="POST">
             {%csrf_token%}
-            <input name="{{todo_form.todo.name}}" class="todo-text" type="text" />
+            <input id="{{todo_form.todo.id_for_label}}" name="{{todo_form.todo.name}}" class="todo-text" type="text" required="{{todo_form.todo.field.required}}"/>
+            {%if todo_form.todo.errors%}
+            {%for each_error in todo_form.todo.errors%}
+            <p class="messages">{{each_error}}</span>
+            {%endfor%}
+            {%endif%}
+            <button class="icon hidden" type="submit"><i class="fas fa-check"></i></button>
         </form>
         <ul class="todo-list">
             {%for each_task in items%}
-            <li class="added">{{each_task}}</li>
+            <li class="todo-list-item">{{each_task}}</li>
             {%endfor%}
         </ul>
     </div>
 </div>
 </div>
+{%endblock%}
+{%block page_scripts%}
+<script>
+    $(document).ready(function () {
+        $('input.todo-text').on('keyup', function (e) {
+            if (this.value.trim() !== ''){
+                $('button.icon').removeClass('hidden');
+            }
+            else {
+                $('button.icon').addClass('hidden');
+            }
+            console.log(this.text);
+        });
+    });
+</script>
 {%endblock%}

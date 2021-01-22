@@ -100,6 +100,27 @@ nav ul li a:hover {
   transition: 0.5s;
 }
 /* Nav */
+
+/* Add Icon */
+
+.icon {
+  display: block;
+  position: relative;
+  bottom: 26px;
+  left: 259px;
+  color: #028002;
+  background: none;
+  border: none;
+}
+
+.hidden {
+  display: none;
+}
+
+p.messages {
+  color: #ff0000;
+}
+
 /* Styles for 320px */
 
 @media screen and (min-width: 768px){
@@ -117,6 +138,19 @@ nav ul li a:hover {
     padding: 10px 30px;
     font-size: 24px;
   }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .icon {
+    position: relative;
+    bottom: 30px;
+    left: 653px;
+    color: #028002;
+    background: none;
+    border: none;
+  }
 }
 
 @media screen and (max-width: 768px){
@@ -130,16 +164,6 @@ nav ul li a:hover {
     font-size: 30px;
     color:#00ff4c86;
     cursor: pointer;
-  }
-
-  .menu-toggle:before {
-    content: '\f0c9';
-    font-family: FontAwesome;
-    line-height: 40px;
-  }
-
-  .menu-toggle.active:before {
-    content: '\f00d';
   }
 
   nav {

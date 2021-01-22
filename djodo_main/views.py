@@ -12,4 +12,6 @@ def home(request):
         if todo_form.is_valid():
             todo_item.append(todo_form.cleaned_data["todo"])
             return render(request, 'index.html', {"todo_form": todo_form, "items": todo_item})
+        else:
+            return render(request, 'index.html', {"todo_form": todo_form, "items": todo_item})
 
