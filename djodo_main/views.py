@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .forms import TodoItem
+from .forms import TodoItem, SignInForm
+from django.contrib.auth.views import LoginView
 
 def home(request):
     todo_item = []
@@ -15,3 +16,8 @@ def home(request):
         else:
             return render(request, 'index.html', {"todo_form": todo_form, "items": todo_item})
 
+
+class SignInView(LoginView):
+
+    template_name = 'accounts/login.html'
+    form_class = SignInForm

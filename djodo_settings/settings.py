@@ -74,14 +74,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djodo_settings.wsgi.application'
 
+AUTH_USER_MODEL ='djodo_main.User'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DATABASE_NAME', 'mydatabase'),
+        'USERNAME': config('DATABASE_USERNAME', 'admin'),
+        'PASSWORD': config('DATABASE_PASSWORD', 'securepassword'),
+        'HOST': config('DATABASE_HOST', 'localhost'),
+        'PORT': config('DATABASE_PORT', 5432),
     }
 }
 

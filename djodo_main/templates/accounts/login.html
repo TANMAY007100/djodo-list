@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block page_title %}
+Login
+{% endblock %}
+{%block page_body%}
+
+<div class="container">
+    
+    <div class="login-box">
+        <h2>Login</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+            <div class="user-box">
+              <input type="text" name="{{form.username.name}}" required="">
+              <label>Username</label>
+            </div>
+            <div class="user-box">
+              <input type="password" name="{{form.password.name}}" required="">
+              <label>Password</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="#">Forgot Password</a>
+          </form>
+    </div>
+</div>
+
+{% endblock %}

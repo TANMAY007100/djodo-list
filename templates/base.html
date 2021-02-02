@@ -14,13 +14,7 @@
   <header>
     <a class="logo" href="{% url 'home' %}">Djodo</a>
     <div class="menu-toggle"><i class="fa-icon fas fa-bars"></i></div>
-    <nav>
-      <ul>
-        <li><a href="{% url 'home' %}" class="active">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
+    {%include 'navbar.html'%}
     <div class="clearfix"></div>
   </header>
   {%block page_body%}{%endblock%}
