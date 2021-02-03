@@ -87,6 +87,10 @@ DATABASES = {
         'PASSWORD': config('DATABASE_PASSWORD', 'securepassword'),
         'HOST': config('DATABASE_HOST', 'localhost'),
         'PORT': config('DATABASE_PORT', 5432),
+        'OPTIONS': {
+            'sslmode': 'require'
+        }
+
     }
 }
 
