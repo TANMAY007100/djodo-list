@@ -1,7 +1,8 @@
 from django.forms import Form, CharField, TextInput
 from django.contrib.auth.forms import AuthenticationForm, UsernameField
+from django.contrib.auth.forms import UsernameField
 
-class TodoItem(Form):
+class TodoItemForm(Form):
 
     todo = CharField(max_length=500, required=True)
 

@@ -13,11 +13,11 @@
             <p class="messages">{{each_error}}</span>
             {%endfor%}
             {%endif%}
-            <button class="icon hidden" type="submit"><i class="fas fa-check"></i></button>
+            <button class="icon hidden" type="submit" name="submit_data"><i class="fas fa-check"></i></button>
         </form>
         <ul class="todo-list">
             {%for each_task in items%}
-            <li class="todo-list-item">{{each_task}}</li>
+            <li class="todo-list-item"><a data-id="{{each_task.id}}" href="#"><i class="fas fa-times remove"></i></a> {{each_task.content}}</li>
             {%endfor%}
         </ul>
     </div>

@@ -30,6 +30,8 @@ ALLOWED_HOSTS = [each_host for each_host in config('ALLOWED_HOSTS', cast=str).sp
 
 ADMIN_URL = config('ADMIN_URL', 'admin')
 
+LOGIN_REDIRECT_URL = 'home'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -79,6 +81,11 @@ AUTH_USER_MODEL ='djodo_main.User'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+sslmode = 'require'
+
+if DEBUG:
+    sslmode = 'disable'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -88,7 +95,7 @@ DATABASES = {
         'HOST': config('DATABASE_HOST', 'localhost'),
         'PORT': config('DATABASE_PORT', 5432),
         'OPTIONS': {
-            'sslmode': 'require'
+            'sslmode': sslmode
         }
 
     }
